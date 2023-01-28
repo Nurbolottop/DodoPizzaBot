@@ -68,7 +68,7 @@ async def start(message : types.Message):
         cur.execute(f"SELECT chat_id FROM users WHERE  chat_id  == {message.from_user.id};")
         result = cur.fetchall()
         if result ==[]:
-            cur.execute(f"INSERT INTO users (first_name, last_name, username, chat_id)VALUES ('{message.from_user.first_name}',  '{message.from_user.last_name}','{message.from_user.username}',{message.chat.id});")
+            cur.execute(f"INSERT INTO users (first_name, last_name, username, chat_id, )VALUES ('{message.from_user.first_name}',  '{message.from_user.last_name}','{message.from_user.username}',{message.chat.id},);")
             start_connect.commit()
         await message.answer(f"Здравстуйте ,{message.from_user.full_name}. Вас приветствует администрация Geektech.\nЕсли хотите узнать обо мне больше нажмите: /help ", reply_markup=keyboard)
         await message.answer("Вот что я могу", reply_markup=inline_keyboard)
